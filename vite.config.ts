@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
-import { themePreprocessorPlugin } from '@zougt/vite-plugin-theme-preprocessor'
+import { themePreprocessorPlugin } from '@zougt/vite-plugin-theme-preprocessor/dist'
 
 export default defineConfig({
   resolve: {
@@ -15,12 +15,12 @@ export default defineConfig({
       less: {
         multipleScopeVars: [
           {
-            scopeName: 'theme-dark',
-            path: resolve('src/assets/style/theme-dark.less')
-          },
-          {
             scopeName: 'theme-light',
             path: resolve('src/assets/style/theme-light.less')
+          },
+          {
+            scopeName: 'theme-dark',
+            path: resolve('src/assets/style/theme-dark.less')
           }
         ]
       }

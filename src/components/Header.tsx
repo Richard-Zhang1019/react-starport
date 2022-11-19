@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/layout'
+import { Box, Flex, Img } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { AiFillGithub } from 'react-icons/ai'
 import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs'
@@ -6,7 +6,6 @@ import { toggleTheme } from '@zougt/vite-plugin-theme-preprocessor/dist/browser-
 import { useContext } from 'react'
 import AyuLightImg from '@/assets/img/ayu-light.png'
 import AyuDarkImg from '@/assets/img/ayu-dark.png'
-import { Img } from '@chakra-ui/react'
 import ThemeColorContext from '@/contexts/themeColor'
 
 const Header = () => {

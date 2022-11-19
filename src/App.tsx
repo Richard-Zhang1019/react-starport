@@ -7,7 +7,7 @@ import routes from '@/router'
 import ThemeColor from '@/contexts/themeColor'
 
 function App() {
-  const [themeColor, setThemeColor] = useState('theme-dark')
+  const [themeColor, setThemeColor] = useState('theme-light')
   const contextValue = {
     themeColor,
     setThemeColor
