@@ -2,7 +2,7 @@ import { RouteObject } from 'react-router-dom'
 import { lazy } from 'react'
 
 const Home = lazy(() => import('@/pages/Home'))
-const Demo = lazy(() => import('@/pages/About'))
+const About = lazy(() => import('@/pages/About'))
 const NotFound = lazy(() => import('@/pages/NotFound'))
 
 const routes = [
@@ -11,12 +11,12 @@ const routes = [
     element: <Home />
   },
   {
-    path: '/home',
+    path: 'home',
     element: <Home />
   },
   {
-    path: '/blog',
-    element: <Demo />
+    path: 'about/:id',
+    element: <About />
   },
   {
     path: '*',

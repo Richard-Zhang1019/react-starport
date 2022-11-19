@@ -60,7 +60,7 @@ const Header = () => {
         <Box
           cursor="pointer"
           onClick={() => {
-            window.open('https://github.com/Ayu-1019', 'blank')
+            window.open('https://github.com/Ayu-1019/react-starport', 'blank')
           }}
         >
           <AiFillGithub size={22} />
