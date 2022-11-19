@@ -26,10 +26,11 @@ const Header = () => {
   return (
     <Flex
       h={60}
-      px={10}
+      px={18}
       justifyContent="space-between"
       alignItems="center"
       fontSize={18}
+      borderBottom="1px solid #88888825"
     >
       <Box
         px={4}
@@ -48,7 +49,7 @@ const Header = () => {
         />
       </Box>
 
-      <Flex gap={10}>
+      <Flex gap={20}>
         <Box cursor="pointer" onClick={toggleThemeColor}>
           {themeColor === 'theme-dark' ? (
             <BsFillSunFill size={22} />

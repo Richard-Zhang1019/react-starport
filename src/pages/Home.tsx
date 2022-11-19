@@ -1,15 +1,11 @@
-import { useContext } from 'react'
 import { Box, Flex, Img } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 
 import imgList from '@/constants/imgList'
-import LogoLight from '@/assets/img/logo-light.jpg'
-import LogoDark from '@/assets/img/logo-dark.jpg'
-import ThemeColorContext from '@/contexts/themeColor'
+import Logo from '@/assets/img/logo.png'
 
 const Home = () => {
   const navigate = useNavigate()
-  const { themeColor } = useContext(ThemeColorContext)
 
   return (
     <Flex
@@ -20,12 +16,9 @@ const Home = () => {
       mx="auto"
       mb={100}
     >
-      <Img
-        width={300}
-        src={themeColor === 'theme-light' ? LogoLight : LogoDark}
-      />
+      <Img width={300} src={Logo} />
       <Box pb={20} fontSize={18}>
-        Shared component across routes with animations
+        🛰Shared component across routes with animations
       </Box>
       <Box
         bgColor="rgb(82,119,191)"

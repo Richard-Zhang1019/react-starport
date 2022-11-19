@@ -15,14 +15,7 @@ function App() {
 
   return (
     <ThemeColor.Provider value={contextValue}>
-      <Box
-        className="App"
-        minH="100vh"
-        overflowX="hidden"
-        p={2}
-        pr={10}
-        pl={10}
-      >
+      <Box className="App" minH="100vh" overflowX="hidden">
         <Header />
         {useRoutes(routes)}
       </Box>
