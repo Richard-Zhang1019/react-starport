@@ -23,7 +23,7 @@
 
 ## 思路
 
-设计一个漂浮于全局的 Float 组件，当切换路由后将组件的位置、样式传递进去，切换路由完毕后把 Float 组件移动到该位置
+设计一个漂浮于根节点的全局的 Float 组件，引入一个 Proxy 组件来表示该组件预期的位置、样式等，当切换路由后 Proxy 组件把位置、样式等信息传递给 Float 组件，并让它以补间动画的形式飞到 Proxy 组件的位置，
 
 - 还在开发中
 - Inspired by [Anthony Fu](https://github.com/antfu)
