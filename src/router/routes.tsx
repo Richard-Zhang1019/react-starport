@@ -11,10 +11,6 @@ const routes = [
     element: <Home />
   },
   {
-    path: 'home',
-    element: <Home />
-  },
-  {
     path: 'about/:id',
     element: <About />
   },

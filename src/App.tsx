@@ -1,24 +1,33 @@
-import { Box, Flex } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import { useState } from 'react'
 import { useRoutes } from 'react-router-dom'
 
 import Header from '@/components/Header'
-import routes from '@/router'
+import Router from '@/router'
 import ThemeColor from '@/contexts/themeColor'
+import Starport from '@/contexts/starport'
 
 function App() {
   const [themeColor, setThemeColor] = useState('theme-light')
-  const contextValue = {
+  const themeColorContext = {
     themeColor,
     setThemeColor
   }
 
+  const [metaData, setMetaData] = useState({})
+  const starportContext = {
+    metaData,
+    setMetaData
+  }
+
   return (
-    <ThemeColor.Provider value={contextValue}>
-      <Box className="App" minH="100vh" overflowX="hidden">
-        <Header />
-        {useRoutes(routes)}
-      </Box>
+    <ThemeColor.Provider value={themeColorContext}>
+      <Starport.Provider value={starportContext}>
+        <Box className="App" minH="100vh" overflowX="hidden">
+          <Header />
+          {useRoutes(Router)}
+        </Box>
+      </Starport.Provider>
     </ThemeColor.Provider>
   )
 }
