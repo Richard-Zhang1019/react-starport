@@ -5,6 +5,9 @@
 <p align="center">
   🛰 跨路由组件
 </p>
+<p align="center">
+  <a href="https://react-starport-eta.vercel.app/" target="_blank">live demo</a>
+</p>
 
 ## 起源
 
@@ -18,5 +21,10 @@
 
 尽管我们可以通过 context 或者一些全局状态管理工具(mobx/redux)来存储组件里的一些状态，并且也可以通过[FLIP](https://github.com/googlearchive/flipjs)来模拟不同组件之间的动画，但是这种实现还是不够**优雅**，因为同一个组件还是会渲染两次，还是要经历组件卸载和重新挂载的生命周期
 
+## 思路
+
+设计一个漂浮于全局的 Float 组件，当切换路由后将组件的位置、样式传递进去，切换路由完毕后把 Float 组件移动到该位置
+
+- 还在开发中
 - Inspired by [Anthony Fu](https://github.com/antfu)
 - 特别感谢女朋友帮忙 P 的 logo 图片
