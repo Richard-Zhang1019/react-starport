@@ -23,7 +23,7 @@ function App() {
   return (
     <ThemeColor.Provider value={themeColorContext}>
       <Starport.Provider value={starportContext}>
-        <Box className="App" minH="100vh" overflowX="hidden">
+        <Box className="App" minH="100vh" pb={15}>
           <Header />
           {useRoutes(Router)}
         </Box>

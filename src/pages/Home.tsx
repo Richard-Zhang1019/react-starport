@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import imgList from '@/constants/imgList'
 import Logo from '@/assets/img/logo.png'
+import Button from '@/components/Button'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -13,7 +14,7 @@ const Home = () => {
     <Flex
       direction="column"
       alignItems="center"
-      w={1450}
+      w="90%"
       justifyContent="center"
       mx="auto"
       mb={100}
@@ -22,20 +23,7 @@ const Home = () => {
       <Box pb={20} fontSize={18}>
         🛰 Shared component across routes with animations
       </Box>
-      <Box
-        bgColor="rgb(82,119,191)"
-        color="white"
-        fontSize={16}
-        my={10}
-        h={35}
-        lineHeight="30px"
-        px={10}
-        rounded="5px"
-        cursor="pointer"
-        onClick={() => setSize(!size)}
-      >
-        toggle
-      </Box>
+      <Button onClick={() => setSize(!size)}>toggle</Button>
       <Flex
         wrap="wrap"
         justifyContent="center"
@@ -51,7 +39,7 @@ const Home = () => {
               rounded={size ? '12px' : 0}
               transition="all 800ms"
               style={{
-                aspectRatio: size ? '4/3' : '16/9'
+                aspectRatio: size ? '5/4' : '16/9'
               }}
               overflow="hidden"
               justifyContent="center"
