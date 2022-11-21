@@ -1,14 +1,14 @@
 import { Box } from '@chakra-ui/react'
-import { useRef, useEffect, ReactNode, FC } from 'react'
+import { useRef, useEffect, FC, ReactElement } from 'react'
 import { useAliveScope } from './KeepAliveScope'
 
 interface KeepAliveProps {
   id: string
-  children: ReactNode
+  children: ReactElement
 }
 
 const KeepAlive: FC<KeepAliveProps> = ({ id, children }) => {
-  const getPortalElement = useAliveScope()
+  const { getPortalElement } = useAliveScope()
   const keepAliveRef = useRef<HTMLDivElement>(null)
 
   const insertPortalElement = () => {

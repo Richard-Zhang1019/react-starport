@@ -1,7 +1,7 @@
-import { createContext, ReactElement, ReactNode } from 'react'
+import { createContext, ReactElement } from 'react'
 
 interface getPortalElement {
-  getPortalElement: (id: string, children: ReactNode) => ReactElement
+  getPortalElement: (id: string, children: ReactElement) => HTMLElement
 }
 
-export default createContext<any>({})
+export default createContext({} as getPortalElement)

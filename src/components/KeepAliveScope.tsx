@@ -37,8 +37,12 @@ export const KeepAliveScope: FC<AliveScopeProps> = ({ children }) => {
     return list![id].element
   }
 
+  const aliveScopeContext = {
+    getPortalElement
+  }
+
   return (
-    <AliveScope.Provider value={getPortalElement}>
+    <AliveScope.Provider value={aliveScopeContext}>
       {children}
       {Object.entries(list!).map(([id, { children, element }]) => (
         <Fragment key={id}>{createPortal(children, element)}</Fragment>
