@@ -49,7 +49,7 @@ const Header = () => {
         />
       </Box>
 
-      <Flex gap={20}>
+      <Flex gap={20} mt={10}>
         <Box cursor="pointer" onClick={toggleThemeColor}>
           {themeColor === 'theme-dark' ? (
             <BsFillSunFill size={22} />
