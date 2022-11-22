@@ -14,7 +14,7 @@ const Home = () => {
     <Flex
       direction="column"
       alignItems="center"
-      w="90%"
+      maxW="1480px"
       justifyContent="center"
       mx="auto"
       mb={100}
