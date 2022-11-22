@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import imgList from '@/constants/imgList'
 import Logo from '@/assets/img/logo.png'
 import Button from '@/components/Button'
+import FloatProxy from '@/components/FloatProxy'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -30,27 +31,21 @@ const Home = () => {
         gap={size ? 15 : 0}
         transition="all 800ms"
       >
-        {imgList.map((item, index) => {
-          return (
-            <Flex
-              key={index}
+        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'].map(
+          item => (
+            <FloatProxy
+              key={item}
+              port={item}
+              w={60}
+              h={30}
+              m="5"
+              rounded="xl"
               cursor="pointer"
-              w={250}
-              rounded={size ? '12px' : 0}
-              transition="all 800ms"
-              style={{
-                aspectRatio: size ? '5/4' : '16/9'
-              }}
               overflow="hidden"
-              justifyContent="center"
-              onClick={() => {
-                navigate(`/about/${index + 1}`)
-              }}
-            >
-              <Img src={item} />
-            </Flex>
+              onClick={() => navigate('/about/' + item)}
+            />
           )
-        })}
+        )}
       </Flex>
     </Flex>
   )

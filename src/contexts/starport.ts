@@ -1,8 +1,12 @@
-import { createContext, Dispatch, SetStateAction } from 'react'
+import { createContext } from 'react'
 
 interface starportProps {
-  metaData?: any
-  setMetaData?: any
+  metaData: any
+  setMetaData: any
+  proxyElArr: any
+  setProxyElArr: any
+  landedMap: any
+  setLandedMap: any
 }
 
-export default createContext({} as starportProps)
+export default createContext({} as Partial<starportProps>)

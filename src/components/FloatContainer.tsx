@@ -1,6 +1,11 @@
-import React from 'react'
+import { FC, ReactElement } from 'react'
 
-const FloatContainer = () => {
+interface FloatContainerProps {
+  slot: ReactElement
+  port: string
+}
+
+const FloatContainer: FC<FloatContainerProps> = ({ slot, port }) => {
   return <div>FloatContainer</div>
 }
 

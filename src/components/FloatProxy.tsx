@@ -1,7 +1,7 @@
-import React from 'react'
+import { FC, memo } from 'react'
 
-const FloatProxy = () => {
+const FloatProxy = (props: any) => {
   return <div>FloatProxy</div>
 }
 
-export default FloatProxy
+export default memo(FloatProxy)
