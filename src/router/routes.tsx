@@ -1,9 +1,7 @@
 import { RouteObject } from 'react-router-dom'
-import { lazy } from 'react'
-
-const Home = lazy(() => import('@/pages/Home'))
-const About = lazy(() => import('@/pages/About'))
-const NotFound = lazy(() => import('@/pages/NotFound'))
+import Home from '@/pages/Home'
+import About from '@/pages/About'
+import NotFound from '@/pages/NotFound'
 
 const routes = [
   {
