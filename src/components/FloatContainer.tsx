@@ -1,4 +1,3 @@
-import { Box } from '@chakra-ui/react'
 import {
   FC,
   memo,
@@ -8,10 +7,11 @@ import {
   useRef,
   useState
 } from 'react'
+import { Box } from '@chakra-ui/react'
 import { useLocation } from 'react-router-dom'
+import { createPortal } from 'react-dom'
 
 import Starport from '@/contexts/starport'
-import { createPortal } from 'react-dom'
 import KeepAlive from './KeepAlive'
 
 interface FloatContainerProps {
@@ -41,7 +41,7 @@ const FloatContainer: FC<FloatContainerProps> = ({ id, slot }) => {
     setLanded(false)
     if (ref.current) {
       const style = ref.current.style
-      const rect = proxyList[id]?.current.getBoundingClientRect()
+      const rect = proxyList[id]?.current?.getBoundingClientRect()
 
       if (rect) {
         const scrollTop =
@@ -75,16 +75,15 @@ const FloatContainer: FC<FloatContainerProps> = ({ id, slot }) => {
   return (
     <Box
       {...metaData[id]}
-      m="!0"
       position="absolute"
-      transition="all 0.9s"
+      transition="all 900ms"
       style={{
         ...defaultStyle,
         ...metaData[id]?.style
       }}
       ref={ref}
     >
-      {metaData[id] && landed && proxyList[id].current ? (
+      {metaData[id] && landed && proxyList[id]?.current ? (
         createPortal(
           <KeepAlive id={id}>{slot}</KeepAlive>,
           proxyList[id].current

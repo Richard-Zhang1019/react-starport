@@ -41,10 +41,6 @@ const Home = () => {
           <FloatProxy
             key={item}
             id={item}
-            w={60}
-            h={30}
-            m="5"
-            rounded="xl"
             cursor="pointer"
             overflow="hidden"
             onClick={() => navigate('/about/' + item)}
