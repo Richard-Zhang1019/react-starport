@@ -11,7 +11,7 @@ const FloatProxy = (props: any) => {
     const { width, height } = ref.current?.getBoundingClientRect() as DOMRect
     const style = { width, height }
 
-    setMetaData(prev => ({
+    setMetaData((prev: any) => ({
       ...prev,
       [props.id]: {
         ...props,
@@ -26,12 +26,12 @@ const FloatProxy = (props: any) => {
     update()
     window.addEventListener('resize', update)
     // 重新设置proxyList
-    setProxyList(prev => ({ ...prev, [props.id]: ref }))
+    setProxyList((prev: any) => ({ ...prev, [props.id]: ref }))
     return () => {
       Promise.resolve().then(() => {
         landedMap[props.id] && landedMap[props.id](false)
       })
-      setProxyList(prev => ({ ...prev, [props.id]: null }))
+      setProxyList((prev: any) => ({ ...prev, [props.id]: null }))
       window.removeEventListener('resize', update)
     }
   }, [props])

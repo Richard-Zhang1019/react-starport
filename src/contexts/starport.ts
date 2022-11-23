@@ -1,4 +1,4 @@
-import { createContext, CSSProperties } from 'react'
+import { createContext } from 'react'
 
 interface starportProps {
   metaData: any
