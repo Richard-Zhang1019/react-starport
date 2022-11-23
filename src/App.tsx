@@ -5,6 +5,7 @@ import { useRoutes } from 'react-router-dom'
 import Header from '@/components/Header'
 import Router from '@/router'
 import ThemeColor from '@/contexts/themeColor'
+import Language from '@/contexts/language'
 import Starport from '@/components/Starport'
 import imgList from './constants/imgList'
 import FloatContainer from './components/FloatContainer'
@@ -17,23 +18,31 @@ function App() {
     setThemeColor
   }
 
+  const [language, setLanguage] = useState<'English' | 'Chinese'>('English')
+  const languageContext = {
+    language,
+    setLanguage
+  }
+
   return (
     <ThemeColor.Provider value={themeColorContext}>
-      <Starport>
-        <Box className="App" minH="100vh" pb={15}>
-          <Header />
-          {useRoutes(Router)}
-          {imgList.map((item, index) => {
-            return (
-              <FloatContainer
-                key={index}
-                slot={<Image src={item} />}
-                port={index + 1 + ''}
-              />
-            )
-          })}
-        </Box>
-      </Starport>
+      <Language.Provider value={languageContext}>
+        <Starport>
+          <Box className="App" minH="100vh" pb={15}>
+            <Header />
+            {useRoutes(Router)}
+            {imgList.map((item, index) => {
+              return (
+                <FloatContainer
+                  key={index}
+                  slot={<Image src={item} />}
+                  port={index + 1 + ''}
+                />
+              )
+            })}
+          </Box>
+        </Starport>
+      </Language.Provider>
     </ThemeColor.Provider>
   )
 }

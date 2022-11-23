@@ -4,13 +4,18 @@ import { AiFillGithub } from 'react-icons/ai'
 import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs'
 import { toggleTheme } from '@zougt/vite-plugin-theme-preprocessor/dist/browser-utils.js'
 import { useContext } from 'react'
+
 import AyuLightImg from '@/assets/img/ayu-light.png'
 import AyuDarkImg from '@/assets/img/ayu-dark.png'
 import ThemeColorContext from '@/contexts/themeColor'
+import Language from '@/contexts/language'
+import useIsEnglish from '@/hooks/useIsEnglish'
 
 const Header = () => {
   const navigate = useNavigate()
   const { themeColor, setThemeColor } = useContext(ThemeColorContext)
+  const { language, setLanguage } = useContext(Language)
+  const isEnglish = useIsEnglish()
 
   const toggleThemeColor = () => {
     let currentTheme = themeColor
@@ -21,6 +26,10 @@ const Header = () => {
       scopeName: currentTheme
     })
     setThemeColor(currentTheme)
+  }
+
+  const toggleLanguage = () => {
+    isEnglish ? setLanguage('Chinese') : setLanguage('English')
   }
 
   return (
@@ -50,6 +59,9 @@ const Header = () => {
       </Box>
 
       <Flex gap={20} mt={10}>
+        <Box fontSize={14} cursor="pointer" onClick={() => toggleLanguage()}>
+          {isEnglish ? 'Chinese' : 'English'}
+        </Box>
         <Box cursor="pointer" onClick={toggleThemeColor}>
           {themeColor === 'theme-dark' ? (
             <BsFillSunFill size={22} />
