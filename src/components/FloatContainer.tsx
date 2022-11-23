@@ -11,22 +11,57 @@ import {
 import { useLocation } from 'react-router-dom'
 
 import Starport from '@/contexts/starport'
+import { createPortal } from 'react-dom'
+import KeepAlive from './KeepAlive'
 
 interface FloatContainerProps {
+  id: number
   slot: ReactElement
-  port: string
 }
 
-const FloatContainer: FC<FloatContainerProps> = ({ slot, port }) => {
+const FloatContainer: FC<FloatContainerProps> = ({ id, slot }) => {
   const location = useLocation()
-  const { metaData, landedMap, proxyList } = useContext(Starport)
+  const { metaData, setLandedMap, proxyList } = useContext(Starport)
   const [landed, setLanded] = useState(true)
   const ref = useRef<HTMLDivElement>(null)
 
+  const timer: Record<number, number> = {}
+  const defaultStyle = {
+    opacity: '0',
+    transform: 'translateY(-20px)'
+  }
+
+  useEffect(() => {
+    // 注册setLanded函数
+    setLandedMap((pre: any) => ({ ...pre, [id]: setLanded }))
+  }, [])
   const update = async () => {
     // 等待一个tick，确保dom已经渲染完成
     await Promise.resolve().then()
     setLanded(false)
+    if (ref.current) {
+      const style = ref.current.style
+      const rect = proxyList[id]?.current.getBoundingClientRect()
+
+      if (rect) {
+        const scrollTop =
+          document.body.scrollTop || document.documentElement.scrollTop
+        const scrollLeft =
+          document.body.scrollLeft || document.documentElement.scrollLeft
+        style.top = `${rect.top + scrollTop}px`
+        style.left = `${rect.left + scrollLeft}px`
+        style.opacity = '1'
+        style.transform = 'none'
+      } else {
+        style.opacity = '0'
+        style.transform = 'translateY(-20px) scale(0)'
+        style.pointerEvents = 'none'
+      }
+    }
+    clearTimeout(Number(timer[id]))
+    timer[id] = setTimeout(() => {
+      setLanded(true)
+    }, 900)
   }
 
   useEffect(() => {
@@ -38,8 +73,25 @@ const FloatContainer: FC<FloatContainerProps> = ({ slot, port }) => {
   }, [location.pathname, metaData])
 
   return (
-    <Box {...metaData[port]!} ref={ref}>
-      <Box>{slot}</Box>
+    <Box
+      {...metaData[id]}
+      m="!0"
+      position="absolute"
+      transition="all 0.9s"
+      style={{
+        ...defaultStyle,
+        ...metaData[id]?.style
+      }}
+      ref={ref}
+    >
+      {metaData[id] && landed && proxyList[id].current ? (
+        createPortal(
+          <KeepAlive id={id}>{slot}</KeepAlive>,
+          proxyList[id].current
+        )
+      ) : (
+        <KeepAlive id={id}>{slot}</KeepAlive>
+      )}
     </Box>
   )
 }

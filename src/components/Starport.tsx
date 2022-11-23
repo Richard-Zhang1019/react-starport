@@ -8,9 +8,15 @@ interface StarportProps {
 
 const Starport: FC<StarportProps> = ({ children }) => {
   const [metaData, setMetaData] = useState({})
+  const [proxyList, setProxyList] = useState([])
+  const [landedMap, setLandedMap] = useState({})
   const starportContext = {
     metaData,
-    setMetaData
+    setMetaData,
+    proxyList,
+    setProxyList,
+    landedMap,
+    setLandedMap
   }
 
   return (

@@ -1,7 +1,7 @@
 import { createContext, CSSProperties } from 'react'
 
 interface starportProps {
-  metaData: CSSProperties
+  metaData: any
   setMetaData: any
   proxyList: any
   setProxyList: any

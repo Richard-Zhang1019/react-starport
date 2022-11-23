@@ -11,7 +11,7 @@ const FloatProxy = (props: any) => {
     const style = { width, height }
     setMetaData((prev: CSSProperties) => ({
       ...prev,
-      [props.port]: {
+      [props.id]: {
         ...props,
         style
       }
@@ -23,7 +23,7 @@ const FloatProxy = (props: any) => {
   return (
     // 将属性传递给div
     <Box ref={ref} {...props}>
-      {props.port}
+      {props.id}
     </Box>
   )
 }

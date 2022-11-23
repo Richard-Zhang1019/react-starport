@@ -11,11 +11,11 @@ const Button: FC<ButtonProps> = ({ children, onClick }) => {
     <Box
       bgColor="rgb(82,119,191)"
       color="white"
-      fontSize={16}
+      fontSize={14}
       my={10}
       w="fit-content"
-      h={30}
       lineHeight="28px"
+      p={2}
       px={10}
       rounded="5px"
       cursor="pointer"

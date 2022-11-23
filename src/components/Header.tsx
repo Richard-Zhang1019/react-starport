@@ -14,13 +14,13 @@ import useIsDark from '@/hooks/useIsDark'
 
 const Header = () => {
   const navigate = useNavigate()
-  const { themeColor, setThemeColor } = useContext(ThemeColorContext)
+  const { setThemeColor } = useContext(ThemeColorContext)
   const { setLanguage } = useContext(Language)
   const isEnglish = useIsEnglish()
   const isDark = useIsDark()
 
   const toggleThemeColor = () => {
-    let currentTheme = !isDark ? 'theme-dark' : 'theme-light'
+    const currentTheme = !isDark ? 'theme-dark' : 'theme-light'
     toggleTheme({
       scopeName: currentTheme
     })
