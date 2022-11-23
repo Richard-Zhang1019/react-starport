@@ -15,7 +15,7 @@ const Button: FC<ButtonProps> = ({ children, onClick }) => {
       my={10}
       w="fit-content"
       h={30}
-      lineHeight="25px"
+      lineHeight="28px"
       px={10}
       rounded="5px"
       cursor="pointer"

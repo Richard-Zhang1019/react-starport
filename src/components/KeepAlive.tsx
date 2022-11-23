@@ -17,6 +17,7 @@ const KeepAlive: FC<KeepAliveProps> = ({ id, children }) => {
     // 插入到div中
     keepAliveRef.current!.appendChild(portalElement)
   }
+
   useEffect(() => {
     insertPortalElement()
   }, [])

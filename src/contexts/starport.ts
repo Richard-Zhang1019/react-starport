@@ -1,10 +1,10 @@
-import { createContext } from 'react'
+import { createContext, CSSProperties } from 'react'
 
 interface starportProps {
-  metaData: any
+  metaData: CSSProperties
   setMetaData: any
-  proxyElArr: any
-  setProxyElArr: any
+  proxyList: any
+  setProxyList: any
   landedMap: any
   setLandedMap: any
 }

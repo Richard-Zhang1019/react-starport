@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react'
+import { FC, ReactElement, useState } from 'react'
 
 interface FloatContainerProps {
   slot: ReactElement
@@ -6,7 +6,14 @@ interface FloatContainerProps {
 }
 
 const FloatContainer: FC<FloatContainerProps> = ({ slot, port }) => {
-  return <div>FloatContainer</div>
+  const [count, setCount] = useState(0)
+  return (
+    <div>
+      FloatContainer
+      <div onClick={() => setCount(count + 1)}>{count}</div>
+      <div>{slot}</div>
+    </div>
+  )
 }
 
 export default FloatContainer
