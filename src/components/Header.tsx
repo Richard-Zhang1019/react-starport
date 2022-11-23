@@ -10,18 +10,17 @@ import AyuDarkImg from '@/assets/img/ayu-dark.png'
 import ThemeColorContext from '@/contexts/themeColor'
 import Language from '@/contexts/language'
 import useIsEnglish from '@/hooks/useIsEnglish'
+import useIsDark from '@/hooks/useIsDark'
 
 const Header = () => {
   const navigate = useNavigate()
   const { themeColor, setThemeColor } = useContext(ThemeColorContext)
-  const { language, setLanguage } = useContext(Language)
+  const { setLanguage } = useContext(Language)
   const isEnglish = useIsEnglish()
+  const isDark = useIsDark()
 
   const toggleThemeColor = () => {
-    let currentTheme = themeColor
-    themeColor === 'theme-dark'
-      ? (currentTheme = 'theme-light')
-      : (currentTheme = 'theme-dark')
+    let currentTheme = !isDark ? 'theme-dark' : 'theme-light'
     toggleTheme({
       scopeName: currentTheme
     })
@@ -49,7 +48,7 @@ const Header = () => {
         }}
       >
         <Img
-          src={themeColor === 'theme-dark' ? AyuLightImg : AyuDarkImg}
+          src={isDark ? AyuLightImg : AyuDarkImg}
           opacity={0.8}
           _hover={{ opacity: 1 }}
           color="white"
@@ -63,7 +62,7 @@ const Header = () => {
           {isEnglish ? 'Chinese' : 'English'}
         </Box>
         <Box cursor="pointer" onClick={toggleThemeColor}>
-          {themeColor === 'theme-dark' ? (
+          {isDark ? (
             <BsFillSunFill size={22} />
           ) : (
             <BsFillMoonStarsFill size={22} />
