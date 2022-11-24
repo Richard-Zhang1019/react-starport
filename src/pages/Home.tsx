@@ -23,13 +23,13 @@ const Home = () => {
     >
       <Img width={300} src={Logo} />
       <Box pb={20} fontSize={18}>
-        🛰{' '}
+        🛰
         {isEnglish
-          ? 'Shared component across routes with animations'
-          : '夸路由组件共享动画'}
+          ? ' Shared component across routes with animations'
+          : ' 夸路由组件共享动画'}
       </Box>
       <Button onClick={() => setSize(!size)}>
-        {isEnglish ? 'toggle' : '改变尺寸'}
+        {isEnglish ? 'toggle size' : '改变尺寸'}
       </Button>
       <Flex
         wrap="wrap"
@@ -41,6 +41,10 @@ const Home = () => {
           <FloatProxy
             key={item}
             id={item}
+            style={{
+              aspectRatio: size ? '5/4' : '16/9',
+              borderRadius: size ? 15 : 0
+            }}
             cursor="pointer"
             overflow="hidden"
             onClick={() => navigate('/about/' + item)}

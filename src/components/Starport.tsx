@@ -23,6 +23,7 @@ const Starport: FC<StarportProps> = ({ children }) => {
   return (
     <StarportContext.Provider value={starportContext}>
       <KeepAliveScope>{children}</KeepAliveScope>
+      {/* {children} */}
     </StarportContext.Provider>
   )
 }

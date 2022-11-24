@@ -1,5 +1,6 @@
 import {
   FC,
+  Fragment,
   memo,
   ReactElement,
   useContext,
@@ -21,7 +22,7 @@ interface FloatContainerProps {
 
 const FloatContainer: FC<FloatContainerProps> = ({ id, slot }) => {
   const location = useLocation()
-  const { metaData, setLandedMap, proxyList, landedMap } = useContext(Starport)
+  const { metaData, setLandedMap, proxyList } = useContext(Starport)
   const [landed, setLanded] = useState(true)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -33,9 +34,6 @@ const FloatContainer: FC<FloatContainerProps> = ({ id, slot }) => {
 
   useEffect(() => {
     // 注册setLanded函数
-    console.log(metaData)
-    console.log(landedMap)
-    console.log(proxyList)
     setLandedMap((pre: any) => ({ ...pre, [id]: setLanded }))
   }, [])
   const update = async () => {
