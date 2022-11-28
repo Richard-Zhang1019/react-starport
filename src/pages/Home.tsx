@@ -31,21 +31,15 @@ const Home = () => {
       <Button onClick={() => setSize(!size)}>
         {isEnglish ? 'toggle size' : '改变尺寸'}
       </Button>
-      <Flex
-        wrap="wrap"
-        justifyContent="center"
-        gap={size ? 15 : 0}
-        transition="all 900"
-      >
-        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'].map(item => (
+      <Flex wrap="wrap" justifyContent="center" transition="all 900">
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => (
           <FloatProxy
             key={item}
             id={item}
             w="15rem"
-            style={{
-              aspectRatio: size ? '5/4' : '16/9',
-              borderRadius: size ? 15 : 0
-            }}
+            h="8.4rem"
+            m={size ? 10 : 0}
+            borderRadius={size ? 10 : 0}
             cursor="pointer"
             overflow="hidden"
             onClick={() => navigate('/about/' + item)}

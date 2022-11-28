@@ -19,11 +19,14 @@ const About = () => {
       alignItems="center"
       direction="column"
       mx="auto"
-      pt={100}
+      pt={50}
     >
       <Button onClick={() => navigate('/')}>
         {isEnglish ? 'Back' : '返回'}
       </Button>
+      <Box m={20} fontWeight={500}>
+        {isEnglish ? 'try to click on the number' : '点击数字试试'}
+      </Box>
       <Flex mt={50}>
         <FloatProxy
           id={id}
@@ -39,12 +42,20 @@ const About = () => {
           pageB两个路由下都使用了ComponentA组件，那么就会在两个页面创建两次组件实例
         </Box>
       </Flex>
-      <Box textAlign="center" w={800}>
-        当我们从pageA路由跳转到
-        pageB路由后会不可避免的经历组件的卸载和重新挂载，执行组建的生命周期，而跳转前组件内的状态也会丢失。
-        尽管我们可以通过 context
-        或者一些全局状态管理工具来存储组件里的一些状态，并且也可以通过FLIP来模拟不同组件之间的动画，但是这种实现还是不够优雅，因为同一个组件还是会渲染两次，还是要经历组件卸载和重新挂载的生命周期
-      </Box>
+      <Flex mt={50}>
+        <Box w={400} mr={100}>
+          当我们从pageA路由跳转到
+          pageB路由后会不可避免的经历组件的卸载和重新挂载，执行组建的生命周期，而跳转前组件内的状态也会丢失。
+          尽管我们可以通过 context
+          或者一些全局状态管理工具来存储组件里的一些状态，并且也可以通过FLIP来模拟不同组件之间的动画，但是这种实现还是不够优雅，因为同一个组件还是会渲染两次，还是要经历组件卸载和重新挂载的生命周期
+        </Box>
+        <FloatProxy
+          id={Number(id) + 3 > 10 ? Number(id) + 3 - 10 : Number(id) + 3}
+          overflow="hidden"
+          borderRadius="50%"
+          style={{ width: `${size}px`, height: `${size}px` }}
+        />
+      </Flex>
     </Flex>
   )
 }

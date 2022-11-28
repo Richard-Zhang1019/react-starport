@@ -23,8 +23,20 @@
 
 ## 思路
 
-设计一个漂浮于根节点的全局的 Float 组件，引入一个 Proxy 组件来表示该组件预期的位置、样式等，当切换路由后 Proxy 组件把位置、样式等信息传递给 Float 组件，并让它以补间动画的形式飞到 Proxy 组件的位置，
+设计一个代理组件来表示该组件预期的位置、样式等，当切换路由后代理组件把位置、样式等信息传递给真实的组件，并让它以补间动画的形式飞到代理组件的位置
 
-- 还在开发中
-- Inspired by [Anthony Fu](https://github.com/antfu)
+<p align="center">
+  <img height="350" src="./src/assets/img/readme2.png">
+</p>
+
+当动画结束后，通过 createPortal 将组件组件传送到对应的代理组件中，降落到新路由中的节点对应的位置
+
+<p align="center">
+  <img height="350" src="./src/assets/img/readme3.png">
+</p>
+
+有了这种“起飞”与“降落”的机制，在不同的路由中通过代理组件去占位，得以保留原始的 DOM 结构，当路由跳转时，真正的组件“起飞”以补间动画的形式“飞”到新路由中对应的节点位置再“降落”
+
+- 开发中
 - 特别感谢女朋友帮忙 P 的 logo 图片
+- Inspired by [Anthony Fu](https://github.com/antfu)
