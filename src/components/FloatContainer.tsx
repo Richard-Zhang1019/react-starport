@@ -76,6 +76,7 @@ const FloatContainer: FC<FloatContainerProps> = ({ id, slot }) => {
   return (
     <Box
       {...metaData[id]}
+      m={0}
       position="absolute"
       transition="all 900ms"
       style={{

@@ -58,7 +58,12 @@ const Header = () => {
       </Box>
 
       <Flex gap={20} mt={10}>
-        <Box fontSize={14} cursor="pointer" onClick={() => toggleLanguage()}>
+        <Box
+          fontWeight={500}
+          fontSize={14}
+          cursor="pointer"
+          onClick={() => toggleLanguage()}
+        >
           {isEnglish ? 'Chinese' : 'English'}
         </Box>
         <Box cursor="pointer" onClick={toggleThemeColor}>

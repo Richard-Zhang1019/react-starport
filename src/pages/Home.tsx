@@ -16,7 +16,7 @@ const Home = () => {
     <Flex
       direction="column"
       alignItems="center"
-      maxW="1480px"
+      maxW="1420px"
       justifyContent="center"
       mx="auto"
       mb={100}
@@ -35,12 +35,13 @@ const Home = () => {
         wrap="wrap"
         justifyContent="center"
         gap={size ? 15 : 0}
-        transition="all 800ms"
+        transition="all 900"
       >
         {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'].map(item => (
           <FloatProxy
             key={item}
             id={item}
+            w="15rem"
             style={{
               aspectRatio: size ? '5/4' : '16/9',
               borderRadius: size ? 15 : 0

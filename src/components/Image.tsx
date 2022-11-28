@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Flex, Img } from '@chakra-ui/react'
 
 interface ImageProps {
   src: string
@@ -10,19 +10,16 @@ const Image: FC<ImageProps> = ({ src }) => {
 
   return (
     <Flex
-      w={250}
+      w="100%"
+      h="100%"
       justifyContent="center"
       position="relative"
       cursor="pointer"
       overflow="hidden"
-      style={{
-        aspectRatio: '16/9'
-      }}
     >
       <Box
         position="absolute"
         bottom="0"
-        left="1/2"
         color="white"
         onClick={e => {
           e.stopPropagation()
@@ -31,7 +28,7 @@ const Image: FC<ImageProps> = ({ src }) => {
       >
         {counter}
       </Box>
-      <img src={src} />
+      <Img w="100%" h="100%" src={src} />
     </Flex>
   )
 }
