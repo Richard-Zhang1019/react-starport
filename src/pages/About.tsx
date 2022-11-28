@@ -2,28 +2,28 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { Box, Flex } from '@chakra-ui/react'
 import { useState } from 'react'
 
-import Button from '@/components/Button'
+import MyButton from '@/components/MyButton'
 import useIsEnglish from '@/hooks/useIsEnglish'
 import FloatProxy from '@/components/FloatProxy'
 
 const About = () => {
   const navigate = useNavigate()
   const { id } = useParams()
-  const [size, setSize] = useState(250)
+  const [size, setSize] = useState(200)
   const isEnglish = useIsEnglish()
 
   return (
     <Flex
-      minH="87vh"
+      minH="100vh"
       maxW="1420px"
       alignItems="center"
       direction="column"
       mx="auto"
       pt={50}
     >
-      <Button onClick={() => navigate('/')}>
+      <MyButton onClick={() => navigate(-1)}>
         {isEnglish ? 'Back' : '返回'}
-      </Button>
+      </MyButton>
       <Box m={20} fontWeight={500}>
         {isEnglish ? 'try to click on the number' : '点击数字试试'}
       </Box>
@@ -32,7 +32,8 @@ const About = () => {
           id={id}
           overflow="hidden"
           borderRadius="50%"
-          style={{ width: `${size}px`, height: `${size}px` }}
+          w={`${size}px`}
+          h={`${size}px`}
         />
         <Box w={400} ml={100}>
           我们在不同的页面使用同一个组件时可能会由于页面布局不同，UI

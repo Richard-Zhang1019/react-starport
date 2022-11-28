@@ -9,7 +9,7 @@ const Image: FC<ImageProps> = ({ src }) => {
   const [counter, setCounter] = useState(0)
 
   return (
-    <Box position="relative">
+    <Box position="relative" w="100%" h="100%">
       <Box
         position="absolute"
         w={20}

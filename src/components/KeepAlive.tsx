@@ -22,7 +22,7 @@ const KeepAlive: FC<KeepAliveProps> = ({ id, children }) => {
     insertPortalElement()
   }, [])
 
-  return <Box w="100%" h="=100%" ref={keepAliveRef} />
+  return <Box w="100%" h="100%" ref={keepAliveRef} />
 }
 
 export default KeepAlive

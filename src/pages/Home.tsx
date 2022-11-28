@@ -1,9 +1,9 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { Box, Flex, Img } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 
 import Logo from '@/assets/img/logo.png'
-import Button from '@/components/Button'
+import MyButton from '@/components/MyButton'
 import FloatProxy from '@/components/FloatProxy'
 import useIsEnglish from '@/hooks/useIsEnglish'
 
@@ -28,9 +28,12 @@ const Home = () => {
           ? ' Shared component across routes with animations'
           : ' 夸路由组件共享动画'}
       </Box>
-      <Button onClick={() => setSize(!size)}>
-        {isEnglish ? 'toggle size' : '改变尺寸'}
-      </Button>
+      <Flex gap={20}>
+        <MyButton onClick={() => setSize(!size)}>
+          {isEnglish ? 'toggle size' : '改变尺寸'}
+        </MyButton>
+        <MyButton onClick={() => navigate('/list')}>go List</MyButton>
+      </Flex>
       <Flex wrap="wrap" justifyContent="center" transition="all 900">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => (
           <FloatProxy

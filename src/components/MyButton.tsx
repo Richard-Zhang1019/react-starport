@@ -6,7 +6,7 @@ interface ButtonProps {
   onClick: () => void
 }
 
-const Button: FC<ButtonProps> = ({ children, onClick }) => {
+const MyButton: FC<ButtonProps> = ({ children, onClick }) => {
   return (
     <Box
       bgColor="rgb(82,119,191)"
@@ -26,4 +26,4 @@ const Button: FC<ButtonProps> = ({ children, onClick }) => {
   )
 }
 
-export default Button
+export default MyButton

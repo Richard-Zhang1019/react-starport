@@ -31,15 +31,17 @@ function App() {
           <Box className="App" minH="100vh" pb={15}>
             <Header />
             {useRoutes(Router)}
-            {imgList.map((item, index) => {
-              return (
-                <FloatContainer
-                  id={index + 1}
-                  key={index}
-                  slot={<Image src={item} />}
-                />
-              )
-            })}
+            <Box>
+              {imgList.map((item, index) => {
+                return (
+                  <FloatContainer
+                    id={index + 1}
+                    key={index}
+                    slot={<Image src={item} />}
+                  />
+                )
+              })}
+            </Box>
           </Box>
         </Starport>
       </Language.Provider>
