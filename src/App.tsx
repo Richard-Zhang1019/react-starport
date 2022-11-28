@@ -27,8 +27,8 @@ function App() {
   return (
     <ThemeColor.Provider value={themeColorContext}>
       <Language.Provider value={languageContext}>
-        <Starport>
-          <Box className="App" minH="100vh" pb={15}>
+        <Box className="App" minH="100vh" pb={15}>
+          <Starport>
             <Header />
             {useRoutes(Router)}
             <Box>
@@ -42,8 +42,8 @@ function App() {
                 )
               })}
             </Box>
-          </Box>
-        </Starport>
+          </Starport>
+        </Box>
       </Language.Provider>
     </ThemeColor.Provider>
   )
