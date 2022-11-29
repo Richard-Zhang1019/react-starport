@@ -39,8 +39,8 @@ const Home = () => {
           <FloatProxy
             key={item}
             id={item}
-            w="15rem"
-            h="8.4rem"
+            w={size ? '15rem' : '16rem'}
+            h={size ? '12rem' : '9rem'}
             m={size ? 10 : 0}
             borderRadius={size ? 10 : 0}
             cursor="pointer"

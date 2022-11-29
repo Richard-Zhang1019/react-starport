@@ -35,8 +35,10 @@ const List = () => {
             return (
               <FloatProxy
                 id={item}
-                w="15rem"
-                h="8.4rem"
+                w={size ? '15rem' : '16rem'}
+                h={size ? '12rem' : '9rem'}
+                m={size ? 15 : 0}
+                borderRadius={size ? '15px' : 0}
                 overflow="hidden"
                 cursor="pointer"
                 onClick={() => navigate('/about/' + item)}
@@ -49,8 +51,10 @@ const List = () => {
             return (
               <FloatProxy
                 id={item}
-                w="15rem"
-                h="8.4rem"
+                w={size ? '15rem' : '16rem'}
+                h={size ? '12rem' : '9rem'}
+                m={size ? 15 : 0}
+                borderRadius={size ? '15px' : 0}
                 cursor="pointer"
                 overflow="hidden"
                 onClick={() => navigate('/about/' + item)}
