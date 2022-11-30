@@ -1,6 +1,5 @@
 import {
   FC,
-  Fragment,
   memo,
   ReactElement,
   useContext,
@@ -42,13 +41,14 @@ const FloatContainer: FC<FloatContainerProps> = ({ id, slot }) => {
     setLanded(false)
     if (ref.current) {
       const style = ref.current.style
-      const rect = proxyList[id]?.current?.getBoundingClientRect()
+      const rect = proxyList && proxyList[id]?.current?.getBoundingClientRect()
 
       if (rect) {
         const scrollTop =
           document.body.scrollTop || document.documentElement.scrollTop
         const scrollLeft =
           document.body.scrollLeft || document.documentElement.scrollLeft
+
         style.top = `${rect.top + scrollTop}px`
         style.left = `${rect.left + scrollLeft}px`
         style.opacity = '1'
@@ -85,10 +85,10 @@ const FloatContainer: FC<FloatContainerProps> = ({ id, slot }) => {
       }}
       ref={ref}
     >
-      {metaData[id] && landed && proxyList[id]?.current ? (
+      {metaData[id] && landed && proxyList![id]?.current ? (
         createPortal(
           <KeepAlive id={id}>{slot}</KeepAlive>,
-          proxyList[id].current
+          proxyList![id].current
         )
       ) : (
         <KeepAlive id={id}>{slot}</KeepAlive>

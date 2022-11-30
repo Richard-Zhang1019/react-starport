@@ -40,3 +40,12 @@
 - 开发中
 - 特别感谢女朋友帮忙 P 的 logo 图片
 - Inspired by [Anthony Fu](https://github.com/antfu)
+
+TODO
+
+- [x] smooth animation
+- [x] keepalive
+- [ ] clear any type
+- [ ] home page size 状态保存
+- [ ] about -> back to home 后动画时会飘到上面动画结束再恢复位置
+- [ ] 添加一个图片，点击后翻转，然后保存住状态

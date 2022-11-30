@@ -2,6 +2,7 @@ import { memo, useContext, useEffect, useRef } from 'react'
 import { Box } from '@chakra-ui/react'
 
 import Starport from '@/contexts/starport'
+import { proxyListItem } from '@/types/types'
 
 const FloatProxy = (props: any) => {
   const { setMetaData, setProxyList, landedMap } = useContext(Starport)
@@ -26,12 +27,12 @@ const FloatProxy = (props: any) => {
     update()
     window.addEventListener('resize', update)
     // 重新设置proxyList
-    setProxyList((prev: any) => ({ ...prev, [props.id]: ref }))
+    setProxyList((prev: proxyListItem) => ({ ...prev, [props.id]: ref }))
     return () => {
       Promise.resolve().then(() => {
         landedMap[props.id] && landedMap[props.id](false)
       })
-      setProxyList((prev: any) => ({ ...prev, [props.id]: null }))
+      setProxyList((prev: proxyListItem) => ({ ...prev, [props.id]: null }))
       window.removeEventListener('resize', update)
     }
   }, [props])

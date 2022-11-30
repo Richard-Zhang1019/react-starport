@@ -9,7 +9,7 @@ import FloatProxy from '@/components/FloatProxy'
 const About = () => {
   const navigate = useNavigate()
   const { id } = useParams()
-  const [size, setSize] = useState(200)
+  const [size, setSize] = useState(false)
   const isEnglish = useIsEnglish()
 
   return (
@@ -21,9 +21,14 @@ const About = () => {
       mx="auto"
       pt={50}
     >
-      <MyButton onClick={() => navigate(-1)}>
-        {isEnglish ? 'Back' : '返回'}
-      </MyButton>
+      <Flex gap={20}>
+        <MyButton onClick={() => navigate(-1)}>
+          {isEnglish ? 'Back' : '返回'}
+        </MyButton>
+        <MyButton onClick={() => setSize(!size)}>
+          {isEnglish ? 'toggle size' : '改变尺寸'}
+        </MyButton>
+      </Flex>
       <Box m={20} fontWeight={500}>
         {isEnglish ? 'try to click on the number' : '点击数字试试'}
       </Box>
@@ -32,8 +37,8 @@ const About = () => {
           id={id}
           overflow="hidden"
           borderRadius="50%"
-          w={`${size}px`}
-          h={`${size}px`}
+          w={size ? 250 : 200}
+          h={size ? 250 : 200}
         />
         <Box w={400} ml={100}>
           我们在不同的页面使用同一个组件时可能会由于页面布局不同，UI
@@ -54,7 +59,8 @@ const About = () => {
           id={Number(id) + 3 > 10 ? Number(id) + 3 - 10 : Number(id) + 3}
           overflow="hidden"
           borderRadius="50%"
-          style={{ width: `${size}px`, height: `${size}px` }}
+          w={size ? 250 : 200}
+          h={size ? 250 : 200}
         />
       </Flex>
     </Flex>

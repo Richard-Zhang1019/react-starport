@@ -34,6 +34,7 @@ const List = () => {
           {listA.map(item => {
             return (
               <FloatProxy
+                key={item}
                 id={item}
                 w={size ? '15rem' : '16rem'}
                 h={size ? '12rem' : '9rem'}
@@ -41,7 +42,10 @@ const List = () => {
                 borderRadius={size ? '15px' : 0}
                 overflow="hidden"
                 cursor="pointer"
-                onClick={() => navigate('/about/' + item)}
+                onClick={() => {
+                  setListA(listA.filter(i => i !== item))
+                  setListB([...listB, item])
+                }}
               />
             )
           })}
@@ -50,6 +54,7 @@ const List = () => {
           {listB.map(item => {
             return (
               <FloatProxy
+                key={item}
                 id={item}
                 w={size ? '15rem' : '16rem'}
                 h={size ? '12rem' : '9rem'}
@@ -57,7 +62,10 @@ const List = () => {
                 borderRadius={size ? '15px' : 0}
                 cursor="pointer"
                 overflow="hidden"
-                onClick={() => navigate('/about/' + item)}
+                onClick={() => {
+                  setListA([...listA, item])
+                  setListB(prev => prev.filter(i => i !== item))
+                }}
               />
             )
           })}
