@@ -28,12 +28,14 @@ const FloatProxy = (props: Record<string, any>) => {
     update()
     window.addEventListener('resize', update)
     // 重新设置proxyList
-    setProxyList((prev: proxyListItem) => ({ ...prev, [props.id]: ref }))
+    setProxyList &&
+      setProxyList((prev: proxyListItem) => ({ ...prev, [props.id]: ref }))
     return () => {
       Promise.resolve().then(() => {
         landedMap && landedMap[props.id] && landedMap[props.id](false)
       })
-      setProxyList((prev: proxyListItem) => ({ ...prev, [props.id]: null }))
+      setProxyList &&
+        setProxyList((prev: proxyListItem) => ({ ...prev, [props.id]: null }))
       window.removeEventListener('resize', update)
     }
   }, [props])

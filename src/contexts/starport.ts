@@ -5,7 +5,7 @@ interface starportProps {
   metaData: metaDataItem
   setMetaData: Dispatch<SetStateAction<metaDataItem>>
   proxyList: proxyListItem
-  setProxyList: any
+  setProxyList: Dispatch<SetStateAction<{}>>
   landedMap: landedMapItem
   setLandedMap: Dispatch<SetStateAction<landedMapItem>>
 }
