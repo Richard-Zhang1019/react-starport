@@ -4,7 +4,7 @@ import { Box } from '@chakra-ui/react'
 import Starport from '@/contexts/starport'
 import { metaDataItem, proxyListItem } from '@/types/types'
 
-const FloatProxy = (props: Record<string, any>) => {
+const FloatProxy = (props: Record<string, number>) => {
   const { setMetaData, setProxyList, landedMap } = useContext(Starport)
   const ref = useRef<HTMLDivElement>(null)
 
