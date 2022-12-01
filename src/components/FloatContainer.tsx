@@ -13,6 +13,7 @@ import { createPortal } from 'react-dom'
 
 import Starport from '@/contexts/starport'
 import KeepAlive from './KeepAlive'
+import { landedMapItem } from '@/types/types'
 
 interface FloatContainerProps {
   id: number
@@ -33,7 +34,8 @@ const FloatContainer: FC<FloatContainerProps> = ({ id, slot }) => {
 
   useEffect(() => {
     // 注册setLanded函数
-    setLandedMap((pre: any) => ({ ...pre, [id]: setLanded }))
+    setLandedMap &&
+      setLandedMap((pre: landedMapItem) => ({ ...pre, [id]: setLanded }))
   }, [])
   const update = async () => {
     // 等待一个tick，确保dom已经渲染完成
@@ -75,17 +77,17 @@ const FloatContainer: FC<FloatContainerProps> = ({ id, slot }) => {
 
   return (
     <Box
-      {...metaData[id]}
+      {...metaData![id]}
       m={0}
       position="absolute"
       transition="all 900ms"
       style={{
         ...defaultStyle,
-        ...metaData[id]?.style
+        ...metaData![id]?.style
       }}
       ref={ref}
     >
-      {metaData[id] && landed && proxyList![id]?.current ? (
+      {metaData && metaData[id] && landed && proxyList![id]?.current ? (
         createPortal(
           <KeepAlive id={id}>{slot}</KeepAlive>,
           proxyList![id].current

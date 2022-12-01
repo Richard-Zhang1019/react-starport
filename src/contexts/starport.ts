@@ -1,13 +1,13 @@
-import { proxyListItem } from '@/types/types'
-import { createContext } from 'react'
+import { createContext, Dispatch, SetStateAction } from 'react'
+import { metaDataItem, proxyListItem, landedMapItem } from '@/types/types'
 
 interface starportProps {
-  metaData: any
-  setMetaData: any
-  proxyList: Record<number, proxyListItem>
+  metaData: metaDataItem
+  setMetaData: Dispatch<SetStateAction<metaDataItem>>
+  proxyList: proxyListItem
   setProxyList: any
-  landedMap: any
-  setLandedMap: any
+  landedMap: landedMapItem
+  setLandedMap: Dispatch<SetStateAction<landedMapItem>>
 }
 
 export default createContext({} as Partial<starportProps>)
