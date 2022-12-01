@@ -3,7 +3,7 @@ import { useRef, useEffect, FC, ReactElement } from 'react'
 import { useAliveScope } from './KeepAliveScope'
 
 interface KeepAliveProps {
-  id: number
+  id: string
   children: ReactElement
 }
 

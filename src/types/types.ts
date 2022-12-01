@@ -1,11 +1,11 @@
 export interface metaDataItemValue {
-  [K: number]: Function | string | number
+  [K: string]: Function | string | number
 }
 
-export type metaDataItem = Record<number, Record<string, metaDataItemValue>>
+export type metaDataItem = Record<string, Record<string, metaDataItemValue>>
 
-export type proxyListItem = Record<number, { current: HTMLElement }>
+export type proxyListItem = Record<string, { current: HTMLElement }>
 
-export type landedMapItem = Record<number, (value: boolean) => void>
+export type landedMapItem = Record<string, (value: boolean) => void>
 
 export {}

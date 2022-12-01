@@ -35,7 +35,7 @@ function App() {
               {imgList.map((item, index) => {
                 return (
                   <FloatContainer
-                    id={index + 1}
+                    id={index + 1 + ''}
                     key={index}
                     slot={<Image src={item} />}
                   />

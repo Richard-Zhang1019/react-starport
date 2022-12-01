@@ -32,9 +32,9 @@ const About = () => {
       <Box m={20} fontWeight={500}>
         {isEnglish ? 'try to click on the number' : '点击数字试试'}
       </Box>
-      <Flex mt={50}>
+      <Flex h={250} w={760} mt={20} justifyContent="space-between">
         <FloatProxy
-          id={id}
+          id={id!}
           overflow="hidden"
           borderRadius="50%"
           w={size ? 250 : 200}
@@ -48,7 +48,7 @@ const About = () => {
           pageB两个路由下都使用了ComponentA组件，那么就会在两个页面创建两次组件实例
         </Box>
       </Flex>
-      <Flex mt={50}>
+      <Flex w={760} mt={20} justifyContent="space-between">
         <Box w={400} mr={100}>
           当我们从pageA路由跳转到
           pageB路由后会不可避免的经历组件的卸载和重新挂载，执行组建的生命周期，而跳转前组件内的状态也会丢失。

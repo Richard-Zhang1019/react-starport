@@ -16,7 +16,7 @@ import KeepAlive from './KeepAlive'
 import { landedMapItem } from '@/types/types'
 
 interface FloatContainerProps {
-  id: number
+  id: string
   slot: ReactElement
 }
 
@@ -26,7 +26,7 @@ const FloatContainer: FC<FloatContainerProps> = ({ id, slot }) => {
   const [landed, setLanded] = useState(true)
   const ref = useRef<HTMLDivElement>(null)
 
-  const timer: Record<number, number> = {}
+  const timer: Record<string, number> = {}
   const defaultStyle = {
     opacity: '0',
     transform: 'translateY(-20px)'

@@ -20,8 +20,8 @@ interface list {
 
 export const KeepAliveScope: FC<AliveScopeProps> = ({ children }) => {
   // 存储children
-  const [list, setList] = useState<Record<number, list>>({})
-  const getPortalElement = (id: number, children: ReactElement) => {
+  const [list, setList] = useState<Record<string, list>>({})
+  const getPortalElement = (id: string, children: ReactElement) => {
     // 不存在则添加进去
     if (!list[id]) {
       const element = document.createElement('div')

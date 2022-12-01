@@ -4,9 +4,10 @@ import { Box } from '@chakra-ui/react'
 import Starport from '@/contexts/starport'
 import { metaDataItem, proxyListItem } from '@/types/types'
 
-const FloatProxy = (props: Record<string, number>) => {
-  const { setMetaData, setProxyList, landedMap } = useContext(Starport)
+const FloatProxy = (props: Record<string, number | string | (() => void)>) => {
+  const id = props.id as string
   const ref = useRef<HTMLDivElement>(null)
+  const { setMetaData, setProxyList, landedMap } = useContext(Starport)
 
   const update = () => {
     const { width, height } = ref.current?.getBoundingClientRect() as DOMRect
@@ -15,7 +16,7 @@ const FloatProxy = (props: Record<string, number>) => {
     setMetaData &&
       setMetaData((prev: metaDataItem) => ({
         ...prev,
-        [props.id]: {
+        [id]: {
           ...props,
           style
         }
@@ -24,18 +25,18 @@ const FloatProxy = (props: Record<string, number>) => {
 
   useEffect(() => {
     // props改变时重新起飞
-    landedMap && landedMap[props.id] && landedMap[props.id](false)
+    landedMap && landedMap[id] && landedMap[id](false)
     update()
     window.addEventListener('resize', update)
     // 重新设置proxyList
     setProxyList &&
-      setProxyList((prev: proxyListItem) => ({ ...prev, [props.id]: ref }))
+      setProxyList((prev: proxyListItem) => ({ ...prev, [id]: ref }))
     return () => {
       Promise.resolve().then(() => {
-        landedMap && landedMap[props.id] && landedMap[props.id](false)
+        landedMap && landedMap[id] && landedMap[id](false)
       })
       setProxyList &&
-        setProxyList((prev: proxyListItem) => ({ ...prev, [props.id]: null }))
+        setProxyList((prev: proxyListItem) => ({ ...prev, [id]: null }))
       window.removeEventListener('resize', update)
     }
   }, [props])
