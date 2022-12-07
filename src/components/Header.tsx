@@ -1,6 +1,6 @@
 import { Box, Flex, Img } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
-import { AiFillGithub } from 'react-icons/ai'
+import { AiOutlineBug, AiFillGithub } from 'react-icons/ai'
 import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs'
 import { toggleTheme } from '@zougt/vite-plugin-theme-preprocessor/dist/browser-utils.js'
 import { useContext } from 'react'
@@ -14,7 +14,8 @@ import useIsDark from '@/hooks/useIsDark'
 
 const Header = () => {
   const navigate = useNavigate()
-  const { setThemeColor } = useContext(ThemeColorContext)
+  const { setThemeColor, showBgColor, setShowBgColor } =
+    useContext(ThemeColorContext)
   const { setLanguage } = useContext(Language)
   const isEnglish = useIsEnglish()
   const isDark = useIsDark()
@@ -57,7 +58,7 @@ const Header = () => {
         />
       </Box>
 
-      <Flex gap={20} mt={10}>
+      <Flex gap={20} mt={10} alignItems="center">
         <Box
           fontWeight={500}
           fontSize={14}
@@ -65,6 +66,18 @@ const Header = () => {
           onClick={() => toggleLanguage()}
         >
           {isEnglish ? 'Chinese' : 'English'}
+        </Box>
+        <Box
+          w={30}
+          h={30}
+          p={5}
+          mb={4}
+          borderRadius="10%"
+          cursor="pointer"
+          onClick={() => setShowBgColor(!showBgColor)}
+          bgColor={showBgColor ? '#fef5f5' : ''}
+        >
+          <AiOutlineBug color={showBgColor ? '#f7a3a3' : ''} size={22} />
         </Box>
         <Box cursor="pointer" onClick={toggleThemeColor}>
           {isDark ? (

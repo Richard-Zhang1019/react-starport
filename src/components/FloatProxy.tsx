@@ -2,12 +2,14 @@ import { memo, useContext, useEffect, useRef } from 'react'
 import { Box } from '@chakra-ui/react'
 
 import Starport from '@/contexts/starport'
+import ThemeColor from '@/contexts/themeColor'
 import { metaDataItem, proxyListItem } from '@/types/types'
 
 const FloatProxy = (props: Record<string, number | string | (() => void)>) => {
   const id = props.id as string
   const ref = useRef<HTMLDivElement>(null)
   const { setMetaData, setProxyList, landedMap } = useContext(Starport)
+  const { showBgColor } = useContext(ThemeColor)
 
   const update = () => {
     const { width, height } = ref.current?.getBoundingClientRect() as DOMRect
@@ -43,7 +45,7 @@ const FloatProxy = (props: Record<string, number | string | (() => void)>) => {
 
   return (
     // 将属性传递给div
-    <Box ref={ref} {...props} />
+    <Box ref={ref} {...props} bgColor={showBgColor ? '#5a76ba' : ''} />
   )
 }
 

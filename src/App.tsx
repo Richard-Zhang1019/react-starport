@@ -13,9 +13,12 @@ import Image from '@/components/Image'
 
 function App() {
   const [themeColor, setThemeColor] = useState('theme-light')
+  const [showBgColor, setShowBgColor] = useState(false)
   const themeColorContext = {
     themeColor,
-    setThemeColor
+    setThemeColor,
+    showBgColor,
+    setShowBgColor
   }
 
   const [language, setLanguage] = useState<'English' | 'Chinese'>('English')
