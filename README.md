@@ -43,7 +43,7 @@ When the animation is over, transfer the real component to the corresponding pro
 With this `take off` and `landing` mechanism, the original DOM structure can be preserved through proxy components in different routes. When the route jumps, the real component `takes off` with the tween animation Form `fly` to the corresponding node position in the new route and then `landing`
 
 - still coding
-- Thanks my girlfriend for retouching the logo
+- thanks my girlfriend helping for photoshop the picture
 - Inspired by [Anthony Fu](https://github.com/antfu)
 
 TODO-List
