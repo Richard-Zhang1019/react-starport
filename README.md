@@ -51,6 +51,6 @@ TODO-List
 - [x] smooth animation
 - [x] keepalive
 - [x] clear any type
+- [x] about -> home, picture will float to the top and then restore its position
 - [ ] save the home size
-- [ ] about -> home, picture will float to the top and then restore its position
 - [ ] add a picture, clicked reversal, save the state

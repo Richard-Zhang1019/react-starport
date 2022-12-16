@@ -21,7 +21,9 @@ const Home = () => {
       mx="auto"
       mb={100}
     >
-      <Img width={300} src={Logo} />
+      <Box w={300} h={300}>
+        <Img width={300} src={Logo} />
+      </Box>
       <Box pb={20} fontSize={18}>
         🛰
         {isEnglish

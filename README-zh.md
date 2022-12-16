@@ -48,9 +48,9 @@
 
 TODO-List
 
-- [x] smooth animation
+- [x] 平滑动画
 - [x] keepalive
-- [x] clear any type
-- [ ] home page size 状态保存
-- [ ] about -> back to home 后动画时会飘到上面动画结束再恢复位置
+- [x] 把使用的 any 类型去掉
+- [x] 返回到首页时动画会先飘到上面动画结束再恢复位置(图片没渲染高度没撑开)
+- [ ] home 页的 size 状态保存
 - [ ] 添加一个图片，点击后翻转，然后保存住状态
