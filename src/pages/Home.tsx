@@ -26,7 +26,7 @@ const Home = () => {
         🛰
         {isEnglish
           ? ' Shared component across routes with animations'
-          : ' 夸路由组件共享动画'}
+          : ' 跨路由组件共享动画'}
       </Box>
       <Flex gap={20}>
         <MyButton onClick={() => setSize(!size)}>
