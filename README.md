@@ -14,7 +14,7 @@
   English | <a href="./README-zh.md" target="_blank">简体中文</a>
 </p>
 
-## origin
+## Origin
 
 When we use the same component on different pages, the position, size, style, state, etc. of the same component may be different due to different page layouts and different UI designs. At this time, we may want to use different pages when routing jumps The same component has a `transition` animation to pass the same component smoothly, but the DOM structure is presented in the form of a tree, and components under different routes have different nodes, so when using the same component under different routes, it will still be Create two component instances
 
@@ -43,7 +43,7 @@ When the animation is over, transfer the real component to the corresponding pro
 With this `take off` and `landing` mechanism, the original DOM structure can be preserved through proxy components in different routes. When the route jumps, the real component `takes off` with the tween animation Form `fly` to the corresponding node position in the new route and then `landing`
 
 - still coding
-- 特别感谢女朋友帮忙 P 的 logo 图片
+- Thanks my girlfriend for retouching the logo
 - Inspired by [Anthony Fu](https://github.com/antfu)
 
 TODO-List
