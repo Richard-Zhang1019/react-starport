@@ -30,7 +30,9 @@ const About = () => {
         </MyButton>
       </Flex>
       <Box m={20} fontWeight={500}>
-        {isEnglish ? 'try to click on the number' : '点击数字试试'}
+        {isEnglish
+          ? 'Try to click on pictures and numbers'
+          : '点击图片和数字试试'}
       </Box>
       <Flex h={250} w={760} mt={20} justifyContent="space-between">
         <Flex w={350} justifyContent="center" alignItems="center">

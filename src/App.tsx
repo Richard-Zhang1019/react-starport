@@ -51,7 +51,9 @@ function App() {
                     <FloatContainer
                       id={index + 1 + ''}
                       key={index}
-                      slot={<Image src={item} />}
+                      slot={
+                        <Image src={item} reversal={reversalImgList[index]} />
+                      }
                     />
                   )
                 })}

@@ -11,6 +11,13 @@ import img10 from '@/assets/img/picture10.png'
 import img11 from '@/assets/img/picture11.png'
 import img12 from '@/assets/img/picture12.png'
 import img13 from '@/assets/img/picture13.png'
+import img14 from '@/assets/img/picture14.png'
+import img15 from '@/assets/img/picture15.png'
+import img16 from '@/assets/img/picture16.png'
+import img17 from '@/assets/img/picture17.png'
+import img18 from '@/assets/img/picture18.png'
+import img19 from '@/assets/img/picture19.png'
+import img20 from '@/assets/img/picture20.png'
 
 export const imgList = [
   img1,
@@ -25,4 +32,15 @@ export const imgList = [
   img10
 ]
 
-export const reversalImgList = [img11, img12, img13]
+export const reversalImgList = [
+  img11,
+  img12,
+  img13,
+  img14,
+  img15,
+  img16,
+  img17,
+  img18,
+  img19,
+  img20
+]
