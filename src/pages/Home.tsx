@@ -38,7 +38,7 @@ const Home = () => {
         </MyButton>
         <MyButton onClick={() => navigate('/list')}>go List</MyButton>
       </Flex>
-      <Flex wrap="wrap" justifyContent="center" transition="all 900">
+      <Flex wrap="wrap" justifyContent="center" transition="all 900" mt={20}>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => (
           <FloatProxy
             key={item}

@@ -3,13 +3,20 @@ import { Box, Img } from '@chakra-ui/react'
 
 interface ImageProps {
   src: string
+  reversal?: string
 }
 
-const Image: FC<ImageProps> = ({ src }) => {
+const Image: FC<ImageProps> = ({ src, reversal }) => {
   const [counter, setCounter] = useState(0)
+  const [isReversal, setIsReversal] = useState(false)
 
   return (
-    <Box position="relative" w="100%" h="100%">
+    <Box
+      position="relative"
+      w="100%"
+      h="100%"
+      // onClick={() => setIsReversal(!isReversal)}
+    >
       <Box
         position="absolute"
         w={20}
@@ -19,6 +26,7 @@ const Image: FC<ImageProps> = ({ src }) => {
         right="50%"
         transform="translateX(-50%)"
         color="white"
+        cursor="pointer"
         onClick={e => {
           e.stopPropagation()
           setCounter(counter + 1)
@@ -26,7 +34,11 @@ const Image: FC<ImageProps> = ({ src }) => {
       >
         {counter}
       </Box>
+      {/* {isReversal ? ( */}
       <Img objectFit="cover" w="100%" h="100%" src={src} />
+      {/* ) : (
+        <Img objectFit="cover" w="100%" h="100%" src={reversal} />
+      )} */}
     </Box>
   )
 }

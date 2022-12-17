@@ -8,7 +8,21 @@ import img7 from '@/assets/img/picture7.png'
 import img8 from '@/assets/img/picture8.png'
 import img9 from '@/assets/img/picture9.png'
 import img10 from '@/assets/img/picture10.png'
+import img11 from '@/assets/img/picture11.png'
+import img12 from '@/assets/img/picture12.png'
+import img13 from '@/assets/img/picture13.png'
 
-const imgList = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10]
+export const imgList = [
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10
+]
 
-export default imgList
+export const reversalImgList = [img11, img12, img13]

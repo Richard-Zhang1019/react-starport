@@ -8,7 +8,7 @@ import ThemeColor from '@/contexts/themeColor'
 import Language from '@/contexts/language'
 import Condition from '@/contexts/condition'
 import Starport from '@/components/Starport'
-import imgList from './constants/imgList'
+import { imgList, reversalImgList } from './constants/imgList'
 import FloatContainer from './components/FloatContainer'
 import Image from '@/components/Image'
 

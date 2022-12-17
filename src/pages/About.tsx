@@ -9,7 +9,7 @@ import FloatProxy from '@/components/FloatProxy'
 const About = () => {
   const navigate = useNavigate()
   const { id } = useParams()
-  const [size, setSize] = useState(false)
+  const [size, setSize] = useState(true)
   const isEnglish = useIsEnglish()
 
   return (
@@ -33,13 +33,15 @@ const About = () => {
         {isEnglish ? 'try to click on the number' : '点击数字试试'}
       </Box>
       <Flex h={250} w={760} mt={20} justifyContent="space-between">
-        <FloatProxy
-          id={id!}
-          overflow="hidden"
-          borderRadius="50%"
-          w={size ? 250 : 200}
-          h={size ? 250 : 200}
-        />
+        <Flex w={350} justifyContent="center" alignItems="center">
+          <FloatProxy
+            id={id!}
+            overflow="hidden"
+            borderRadius="50%"
+            w={size ? 250 : 150}
+            h={size ? 250 : 150}
+          />
+        </Flex>
         <Box w={400} ml={100}>
           我们在不同的页面使用同一个组件时可能会由于页面布局不同，UI
           设计不同导致相同组件的位置、大小、样式、状态等不同，这时我们可能会希望在进行路由跳转时让两个页面使用的相同的组件有一个过渡动画直接将相同的组件流畅的传递过去,
@@ -55,13 +57,15 @@ const About = () => {
           尽管我们可以通过 context
           或者一些全局状态管理工具来存储组件里的一些状态，并且也可以通过FLIP来模拟不同组件之间的动画，但是这种实现还是不够优雅，因为同一个组件还是会渲染两次，还是要经历组件卸载和重新挂载的生命周期
         </Box>
-        <FloatProxy
-          id={Number(id) + 3 > 10 ? Number(id) + 3 - 10 : Number(id) + 3}
-          overflow="hidden"
-          borderRadius="50%"
-          w={size ? 250 : 200}
-          h={size ? 250 : 200}
-        />
+        <Flex w={350} justifyContent="center" alignItems="center">
+          <FloatProxy
+            id={Number(id) + 3 > 10 ? Number(id) + 3 - 10 : Number(id) + 3}
+            overflow="hidden"
+            borderRadius="50%"
+            w={size ? 250 : 150}
+            h={size ? 250 : 150}
+          />
+        </Flex>
       </Flex>
     </Flex>
   )
