@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import Router from '@/router'
 import ThemeColor from '@/contexts/themeColor'
 import Language from '@/contexts/language'
+import Condition from '@/contexts/condition'
 import Starport from '@/components/Starport'
 import imgList from './constants/imgList'
 import FloatContainer from './components/FloatContainer'
@@ -27,26 +28,37 @@ function App() {
     setLanguage
   }
 
+  const [size, setSize] = useState(false)
+  const [reversal, setReversal] = useState(false)
+  const ConditionContext = {
+    size,
+    setSize,
+    reversal,
+    setReversal
+  }
+
   return (
     <ThemeColor.Provider value={themeColorContext}>
       <Language.Provider value={languageContext}>
-        <Box className="App" minH="100vh" pb={15}>
-          <Starport>
-            <Header />
-            {useRoutes(Router)}
-            <Box>
-              {imgList.map((item, index) => {
-                return (
-                  <FloatContainer
-                    id={index + 1 + ''}
-                    key={index}
-                    slot={<Image src={item} />}
-                  />
-                )
-              })}
-            </Box>
-          </Starport>
-        </Box>
+        <Condition.Provider value={ConditionContext}>
+          <Box className="App" minH="100vh" pb={15}>
+            <Starport>
+              <Header />
+              {useRoutes(Router)}
+              <Box>
+                {imgList.map((item, index) => {
+                  return (
+                    <FloatContainer
+                      id={index + 1 + ''}
+                      key={index}
+                      slot={<Image src={item} />}
+                    />
+                  )
+                })}
+              </Box>
+            </Starport>
+          </Box>
+        </Condition.Provider>
       </Language.Provider>
     </ThemeColor.Provider>
   )

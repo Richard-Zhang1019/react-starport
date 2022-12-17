@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Box, Flex, Img } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 
@@ -6,11 +6,13 @@ import Logo from '@/assets/img/logo.png'
 import MyButton from '@/components/MyButton'
 import FloatProxy from '@/components/FloatProxy'
 import useIsEnglish from '@/hooks/useIsEnglish'
+import Condition from '@/contexts/condition'
 
 const Home = () => {
   const navigate = useNavigate()
-  const [size, setSize] = useState(false)
   const isEnglish = useIsEnglish()
+
+  const { size, setSize } = useContext(Condition)
 
   return (
     <Flex
