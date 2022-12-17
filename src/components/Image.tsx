@@ -21,6 +21,7 @@ const Image: FC<ImageProps> = ({ src, reversal }) => {
       w="100%"
       h="100%"
       cursor="pointer"
+      transition="all 900ms"
       onClick={() =>
         location.pathname.includes('/about') && setIsReversal(!isReversal)
       }
@@ -42,11 +43,12 @@ const Image: FC<ImageProps> = ({ src, reversal }) => {
       >
         {counter}
       </Box>
-      {isReversal ? (
-        <Img objectFit="cover" w="100%" h="100%" src={src} />
-      ) : (
-        <Img objectFit="cover" w="100%" h="100%" src={reversal} />
-      )}
+      <Img
+        objectFit="cover"
+        w="100%"
+        h="100%"
+        src={isReversal ? src : reversal}
+      />
     </Box>
   )
 }
