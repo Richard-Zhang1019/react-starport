@@ -72,10 +72,10 @@ const Header = () => {
           h={30}
           p={5}
           mb={4}
-          borderRadius="10%"
+          rounded={5}
           cursor="pointer"
           onClick={() => setShowBgColor(!showBgColor)}
-          bgColor={showBgColor ? '#fef5f5' : ''}
+          bgColor={isDark ? '' : showBgColor ? '#fef5f5' : ''}
         >
           <AiOutlineBug color={showBgColor ? '#f7a3a3' : ''} size={22} />
         </Box>

@@ -53,4 +53,5 @@ TODO-List
 - [x] clear any type
 - [x] about -> home, picture will float to the top and then restore its position
 - [x] save the home size
-- [ ] add a picture, clicked reversal, save the state
+- [x] add a picture, clicked reversal, save the state
+- [ ] add animate for clicked reversal

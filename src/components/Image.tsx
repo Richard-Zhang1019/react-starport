@@ -10,7 +10,6 @@ interface ImageProps {
 }
 
 const Image: FC<ImageProps> = ({ src, reversal }) => {
-  console.log(reversal)
   const [counter, setCounter] = useState(0)
   const [isReversal, setIsReversal] = useState(true)
   const location = useLocation()
