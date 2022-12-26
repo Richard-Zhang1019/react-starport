@@ -1,15 +1,14 @@
-import { FC, useContext, useState } from 'react'
+import { FC, useState } from 'react'
 import { Box, Img } from '@chakra-ui/react'
 
-import Condition from '@/contexts/condition'
 import { useLocation } from 'react-router-dom'
 
 interface ImageProps {
   src: string
-  reversal: string
+  reversalSrc: string
 }
 
-const Image: FC<ImageProps> = ({ src, reversal }) => {
+const Image: FC<ImageProps> = ({ src, reversalSrc }) => {
   const [counter, setCounter] = useState(0)
   const [isReversal, setIsReversal] = useState(true)
   const location = useLocation()
@@ -46,8 +45,27 @@ const Image: FC<ImageProps> = ({ src, reversal }) => {
         objectFit="cover"
         w="100%"
         h="100%"
-        src={isReversal ? src : reversal}
+        src={isReversal ? src : reversalSrc}
       />
+      {/* <Img
+        objectFit="cover"
+        w="100%"
+        h="100%"
+        src={src}
+        transition="all 1s"
+        _hover={{ transform: 'rotateY(180deg)' }}
+        style={{
+          backfaceVisibility: 'hidden'
+        }}
+      />
+      <Img
+        objectFit="cover"
+        w="100%"
+        h="100%"
+        src={reversalSrc}
+        transition="all 1s"
+        _hover={{ transform: 'rotateY(180deg)' }}
+      /> */}
     </Box>
   )
 }

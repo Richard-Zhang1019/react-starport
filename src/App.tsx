@@ -52,7 +52,10 @@ function App() {
                       id={index + 1 + ''}
                       key={index}
                       slot={
-                        <Image src={item} reversal={reversalImgList[index]} />
+                        <Image
+                          src={item}
+                          reversalSrc={reversalImgList[index]}
+                        />
                       }
                     />
                   )
