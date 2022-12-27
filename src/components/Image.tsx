@@ -21,7 +21,7 @@ const Image: FC<ImageProps> = ({ src, reversalSrc }) => {
       cursor="pointer"
       transition="all 900ms"
       onClick={() =>
-        location.pathname.includes('/about') && setIsReversal(!isReversal)
+        location.pathname.includes('/about/') && setIsReversal(!isReversal)
       }
     >
       <Box
