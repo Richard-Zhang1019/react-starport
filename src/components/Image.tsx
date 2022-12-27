@@ -41,13 +41,13 @@ const Image: FC<ImageProps> = ({ src, reversalSrc }) => {
       >
         {counter}
       </Box>
-      {/* <Img
+      <Img
         objectFit="cover"
         w="100%"
         h="100%"
         src={isReversal ? src : reversalSrc}
-      /> */}
-      <Img
+      />
+      {/* <Img
         objectFit="cover"
         w="100%"
         h="100%"
@@ -77,7 +77,7 @@ const Image: FC<ImageProps> = ({ src, reversalSrc }) => {
               }
             : {}
         }
-      />
+      /> */}
     </Box>
   )
 }
