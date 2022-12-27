@@ -41,19 +41,25 @@ const Image: FC<ImageProps> = ({ src, reversalSrc }) => {
       >
         {counter}
       </Box>
-      <Img
+      {/* <Img
         objectFit="cover"
         w="100%"
         h="100%"
         src={isReversal ? src : reversalSrc}
-      />
-      {/* <Img
+      /> */}
+      <Img
         objectFit="cover"
         w="100%"
         h="100%"
         src={src}
         transition="all 1s"
-        _hover={{ transform: 'rotateY(180deg)' }}
+        _hover={
+          location.pathname.includes('/about/')
+            ? {
+                transform: 'rotateY(180deg)'
+              }
+            : {}
+        }
         style={{
           backfaceVisibility: 'hidden'
         }}
@@ -64,8 +70,14 @@ const Image: FC<ImageProps> = ({ src, reversalSrc }) => {
         h="100%"
         src={reversalSrc}
         transition="all 1s"
-        _hover={{ transform: 'rotateY(180deg)' }}
-      /> */}
+        _hover={
+          location.pathname.includes('/about/')
+            ? {
+                transform: 'rotateY(180deg)'
+              }
+            : {}
+        }
+      />
     </Box>
   )
 }
