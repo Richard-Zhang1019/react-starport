@@ -52,8 +52,8 @@ const Image: FC<ImageProps> = ({ src, reversalSrc }) => {
         objectFit="cover"
         w="100%"
         h="100%"
-        transform={isReversal ? 'rotateY(0deg)' : 'rotateY(180deg)'}
-        transition="all 1s"
+        // transform={isReversal ? 'rotateY(0deg)' : 'rotateY(180deg)'}
+        // transition="all 1s"
         src={imgSrc}
       />
     </Box>
