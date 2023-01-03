@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { Box, Img } from '@chakra-ui/react'
 
 import { useLocation } from 'react-router-dom'
@@ -10,8 +10,15 @@ interface ImageProps {
 
 const Image: FC<ImageProps> = ({ src, reversalSrc }) => {
   const [counter, setCounter] = useState(0)
+  const [imgSrc, setImgSrc] = useState(src)
   const [isReversal, setIsReversal] = useState(true)
   const location = useLocation()
+
+  useEffect(() => {
+    // setTimeout(() => {
+    setImgSrc(isReversal ? src : reversalSrc)
+    // }, 500)
+  }, [isReversal])
 
   return (
     <Box
@@ -45,48 +52,10 @@ const Image: FC<ImageProps> = ({ src, reversalSrc }) => {
         objectFit="cover"
         w="100%"
         h="100%"
-        src={isReversal ? src : reversalSrc}
-      />
-      {/* <Img
-        objectFit="cover"
-        w="100%"
-        h="100%"
-        src={src}
-        transition="all 1s"
-        transform={isReversal ? 'rotateY(180deg)' : 'rotateY(0deg)'}
-        // _hover={
-        //   location.pathname.includes('/about/')
-        //     ? {
-        //         transform: 'rotateY(180deg)'
-        //       }
-        //     : {}
-        // }
-        style={
-          {
-            // backfaceVisibility: 'hidden'
-          }
-        }
-      />
-      <Img
-        objectFit="cover"
-        w="100%"
-        h="100%"
-        src={reversalSrc}
-        transition="all 1s"
         transform={isReversal ? 'rotateY(0deg)' : 'rotateY(180deg)'}
-        style={
-          {
-            // backfaceVisibility: 'hidden'
-          }
-        }
-        // _hover={
-        //   location.pathname.includes('/about/')
-        //     ? {
-        //         transform: 'rotateY(180deg)'
-        //       }
-        //     : {}
-        // }
-      /> */}
+        transition="all 1s"
+        src={imgSrc}
+      />
     </Box>
   )
 }

@@ -1,13 +1,29 @@
 {
-  "name": "yu-react-template",
-  "private": true,
-  "version": "0.0.0",
+  "name": "starport-react",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "keywords": [
+    "react",
+    "react-starport",
+    "starport",
+    "transition"
+  ],
+  "homepage": "https://github.com/Ayu-1019/react-starport",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ayu-1019/react-starport"
+  },
+  "author": {
+    "name": "Ayu-1019",
+    "email": "aaaayu1019@gmail.com"
+  },
+  "license": "MIT",
   "dependencies": {
     "@chakra-ui/react": "^2.4.0",
     "@emotion/react": "^11.10.5",
