@@ -53,16 +53,19 @@ const Image: FC<ImageProps> = ({ src, reversalSrc }) => {
         h="100%"
         src={src}
         transition="all 1s"
-        _hover={
-          location.pathname.includes('/about/')
-            ? {
-                transform: 'rotateY(180deg)'
-              }
-            : {}
+        transform={isReversal ? 'rotateY(180deg)' : 'rotateY(0deg)'}
+        // _hover={
+        //   location.pathname.includes('/about/')
+        //     ? {
+        //         transform: 'rotateY(180deg)'
+        //       }
+        //     : {}
+        // }
+        style={
+          {
+            // backfaceVisibility: 'hidden'
+          }
         }
-        style={{
-          backfaceVisibility: 'hidden'
-        }}
       />
       <Img
         objectFit="cover"
@@ -70,13 +73,19 @@ const Image: FC<ImageProps> = ({ src, reversalSrc }) => {
         h="100%"
         src={reversalSrc}
         transition="all 1s"
-        _hover={
-          location.pathname.includes('/about/')
-            ? {
-                transform: 'rotateY(180deg)'
-              }
-            : {}
+        transform={isReversal ? 'rotateY(0deg)' : 'rotateY(180deg)'}
+        style={
+          {
+            // backfaceVisibility: 'hidden'
+          }
         }
+        // _hover={
+        //   location.pathname.includes('/about/')
+        //     ? {
+        //         transform: 'rotateY(180deg)'
+        //       }
+        //     : {}
+        // }
       /> */}
     </Box>
   )
