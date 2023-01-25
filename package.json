@@ -15,13 +15,13 @@
     "starport",
     "transition"
   ],
-  "homepage": "https://github.com/Ayu-1019/react-starport",
+  "homepage": "https://github.com/richard-zhang1019/react-starport",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Ayu-1019/react-starport"
+    "url": "https://github.com/richard-zhang1019/react-starport"
   },
   "author": {
-    "name": "Ayu-1019",
+    "name": "richard-zhang1019",
     "email": "aaaayu1019@gmail.com"
   },
   "license": "MIT",
