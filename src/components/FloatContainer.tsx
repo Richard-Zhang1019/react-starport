@@ -37,12 +37,11 @@ const FloatContainer: FC<FloatContainerProps> = ({ id, slot }) => {
     setLandedMap &&
       setLandedMap((pre: landedMapItem) => ({ ...pre, [id]: setLanded }))
   }, [])
-  const update = async () => {
-    // 等待一个tick，确保dom已经渲染完成
-    await Promise.resolve().then()
+  const update = () => {
     setLanded(false)
     if (ref.current) {
       const style = ref.current.style
+      // 返回一个 DOMRect 对象，其提供了元素的大小及其相对于视口的位置。
       const rect = proxyList && proxyList[id]?.current?.getBoundingClientRect()
 
       if (rect) {
@@ -50,7 +49,7 @@ const FloatContainer: FC<FloatContainerProps> = ({ id, slot }) => {
           document.body.scrollTop || document.documentElement.scrollTop
         const scrollLeft =
           document.body.scrollLeft || document.documentElement.scrollLeft
-
+        // 高度为视口高度+滚动高度
         style.top = `${rect.top + scrollTop}px`
         style.left = `${rect.left + scrollLeft}px`
         style.opacity = '1'
